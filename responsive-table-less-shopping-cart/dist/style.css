@@ -1,4 +1,4 @@
-@import url(https://fonts.googleapis.com/css?family=Droid+Serif:400,400italic|Montserrat:400,700);
+@import url("https://fonts.googleapis.com/css2?family=Lobster&family=Roboto+Mono:wght@500&display=swap");
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -61,8 +61,8 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
 
 body {
   color: #333;
-  -webkit-font-smoothing: antialiased;
-  font-family: "Droid Serif", serif;
+  -webkit-font-smoothing: subpixel-antialiased;
+  font-family: "Lobster", cursive;
 }
 
 img {
@@ -91,7 +91,7 @@ img {
 }
 
 .projTitle {
-  font-family: "Montserrat", sans-serif;
+  font-family: "Roboto Mono", monospace;
   font-weight: bold;
   text-align: center;
   font-size: 2em;
@@ -101,11 +101,13 @@ img {
   text-transform: uppercase;
 }
 .projTitle span {
-  font-family: "Droid Serif", serif;
+  font-family: "Lobster", cursive;
   font-weight: normal;
   font-style: italic;
-  text-transform: lowercase;
   color: #777;
+  background: -webkit-linear-gradient(45deg, #ff99ff, #ffcc00);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .heading {
@@ -113,15 +115,15 @@ img {
   border-bottom: 1px solid #D0D0D0;
 }
 .heading h1 {
-  font-family: "Droid Serif", serif;
+  font-family: "Lobster", cursive;
   font-size: 2em;
   float: left;
 }
 .heading a.continue:link, .heading a.continue:visited {
   text-decoration: none;
-  font-family: "Montserrat", sans-serif;
-  letter-spacing: -.015em;
-  font-size: .75em;
+  font-family: "Roboto Mono", monospace;
+  letter-spacing: -.025em;
+  font-size: .85em;
   padding: 1em;
   color: #fff;
   background: #82ca9c;
@@ -134,20 +136,22 @@ img {
   -ms-transition: all 0.25s linear;
   -o-transition: all 0.25s linear;
   transition: all 0.25s linear;
+  background: -webkit-linear-gradient(45deg, #ff99ff, #ffcc00);
 }
 .heading a.continue:after {
   content: "\276f";
   padding: .5em;
   position: relative;
   right: 0;
-  -webkit-transition: all 0.15s linear;
-  -moz-transition: all 0.15s linear;
-  -ms-transition: all 0.15s linear;
-  -o-transition: all 0.15s linear;
-  transition: all 0.15s linear;
+  -webkit-transition: all 0.25s linear;
+  -moz-transition: all 0.25s linear;
+  -ms-transition: all 0.25s linear;
+  -o-transition: all 0.25s linear;
+  transition: all 0.25s linear;
 }
 .heading a.continue:hover, .heading a.continue:focus, .heading a.continue:active {
-  background: #f69679;
+  background: -webkit-linear-gradient(45deg, #66ffcc, #ff99ff);
+  -webkit-transform: scale(1.1);
 }
 .heading a.continue:hover:after, .heading a.continue:focus:after, .heading a.continue:active:after {
   right: -10px;
@@ -156,7 +160,7 @@ img {
 .tableHead {
   display: table;
   width: 100%;
-  font-family: "Montserrat", sans-serif;
+  font-family: "Roboto Mono", monospace;
   font-size: .75em;
 }
 .tableHead li {
@@ -178,8 +182,16 @@ img {
   padding: 1.5em;
   border-bottom: 1px solid #fafafa;
 }
+.cart .items:hover, .cart .items:focus, .cart .items:active {
+  transition-delay: 0.1s;
+  transition-duration: 0.1s;
+  -webkit-transform: scale(1.02);
+}
 .cart .items.even {
-  background: #fafafa;
+  background: -webkit-linear-gradient(0deg, #ffffff, #fafafa, #ffffff);
+}
+.cart .items.odd {
+  background: #ffffff;
 }
 .cart .items .infoWrap {
   display: table;
@@ -188,6 +200,7 @@ img {
 .cart .items .cartSection {
   display: table-cell;
   vertical-align: middle;
+  border: none;
 }
 .cart .items .cartSection .itemNumber {
   font-size: .75em;
@@ -196,7 +209,7 @@ img {
 }
 .cart .items .cartSection h3 {
   font-size: 1em;
-  font-family: "Montserrat", sans-serif;
+  font-family: "Roboto Mono", monospace;
   font-weight: bold;
   text-transform: uppercase;
   letter-spacing: .025em;
@@ -205,20 +218,23 @@ img {
   display: inline-block;
   font-size: .85em;
   color: #777777;
-  font-family: "Montserrat", sans-serif;
+  font-family: "Roboto Mono", monospace;
 }
 .cart .items .cartSection p .quantity {
   font-weight: bold;
   color: #333;
 }
 .cart .items .cartSection p.stockStatus {
-  color: #82CA9C;
+  background: -webkit-linear-gradient(45deg, #009933 10%, #009933, #006699);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
   font-weight: bold;
-  padding: .5em 0 0 1em;
-  text-transform: uppercase;
+  padding: .15em 0 0 2em;
 }
 .cart .items .cartSection p.stockStatus.out {
-  color: #F69679;
+  background: -webkit-linear-gradient(45deg, #ff66ff, #ffd700);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 .cart .items .cartSection .itemImg {
   width: 4em;
@@ -244,35 +260,17 @@ img {
   padding-right: 1em;
 }
 
-.special {
-  display: block;
-  font-family: "Montserrat", sans-serif;
-}
-.special .specialContent {
-  padding: 1em 1em 0;
-  display: block;
-  margin-top: .5em;
-  border-top: 1px solid #dadada;
-}
-.special .specialContent:before {
-  content: "\21b3";
-  font-size: 1.5em;
-  margin-right: 1em;
-  color: #6f6f6f;
-  font-family: helvetica, arial, sans-serif;
-}
-
 a.remove {
   text-decoration: none;
-  font-family: "Montserrat", sans-serif;
+  font-family: "Roboto Mono", monospace;
   color: #ffffff;
   font-weight: bold;
-  background: #e0e0e0;
-  padding: .5em;
-  font-size: .75em;
+  background: #e1e1e1;
+  padding: .35em;
+  font-size: .85em;
   display: inline-block;
-  border-radius: 100%;
-  line-height: .85;
+  border-radius: 1200%;
+  line-height: 0.55;
   -webkit-transition: all 0.25s linear;
   -moz-transition: all 0.25s linear;
   -ms-transition: all 0.25s linear;
@@ -280,21 +278,25 @@ a.remove {
   transition: all 0.25s linear;
 }
 a.remove:hover {
-  background: #f30;
+  transition-delay: 0.1s;
+  transition-duration: 0.1s;
+  background: -webkit-linear-gradient(45deg, #ff66ff, #ff5050);
+  -webkit-transform: scale(1.12);
 }
 
 .promoCode {
   border: 2px solid #efefef;
+  border-radius: 0.618em;
   float: left;
   width: 35%;
-  padding: 2%;
+  padding: 2.472%;
 }
 .promoCode label {
   display: block;
   width: 100%;
-  font-style: italic;
+  font-style: Bold;
   font-size: 1.15em;
-  margin-bottom: .5em;
+  margin-bottom: .618em;
   letter-spacing: -.025em;
 }
 .promoCode input {
@@ -303,26 +305,33 @@ a.remove:hover {
   padding: .5em;
   float: left;
   border: 1px solid #dadada;
+  border-top-left-radius: 0.618em;
+  border-bottom-left-radius: 0.618em;
 }
 .promoCode input:active, .promoCode input:focus {
   outline: 0;
+}
+.promoCode input:hover {
+  -webkit-transform: scale(1.05);
 }
 .promoCode a.btn {
   float: left;
   width: 15%;
   padding: .75em 0;
-  border-radius: 0 1em 1em 0;
+  border-radius: 0 0.618em 0.618em 0;
   text-align: center;
   border: 1px solid #82ca9c;
+  background: -webkit-linear-gradient(45deg, #ff99ff, #ffcc00);
 }
 .promoCode a.btn:hover {
   border: 1px solid #f69679;
-  background: #f69679;
+  background: -webkit-linear-gradient(45deg, #66ffcc, #ff99ff);
+  -webkit-transform: scale(1.05);
 }
 
 .btn:link, .btn:visited {
   text-decoration: none;
-  font-family: "Montserrat", sans-serif;
+  font-family: "Roboto Mono", monospace;
   letter-spacing: -.015em;
   font-size: 1em;
   padding: 1em 3em;
@@ -337,6 +346,7 @@ a.remove:hover {
   -ms-transition: all 0.25s linear;
   -o-transition: all 0.25s linear;
   transition: all 0.25s linear;
+  background: -webkit-linear-gradient(45deg, #ff99ff, #ffcc00);
 }
 .btn:after {
   content: "\276f";
@@ -350,7 +360,8 @@ a.remove:hover {
   transition: all 0.15s linear;
 }
 .btn:hover, .btn:focus, .btn:active {
-  background: #f69679;
+  background: -webkit-linear-gradient(45deg, #66ffcc, #ff99ff);
+  -webkit-transform: scale(1.05);
 }
 .btn:hover:after, .btn:focus:after, .btn:active:after {
   right: -10px;
@@ -379,7 +390,7 @@ a.remove:hover {
   text-align: right;
 }
 .subtotal .totalRow .label {
-  font-family: "Montserrat", sans-serif;
+  font-family: "Roboto Mono", monospace;
   font-size: .85em;
   text-transform: uppercase;
   color: #777;
@@ -419,7 +430,7 @@ a.remove:hover {
   .cart .items .cartSection.qtyWrap:before {
     content: "QTY";
     display: block;
-    font-family: "Montserrat", sans-serif;
+    font-family: "Roboto Mono", monospace;
     padding: .25em;
     font-size: .75em;
   }
