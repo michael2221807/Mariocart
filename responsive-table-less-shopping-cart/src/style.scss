@@ -1,9 +1,9 @@
 @import "compass/css3";
 
-@import url(https://fonts.googleapis.com/css?family=Droid+Serif:400,400italic|Montserrat:400,700);
+@import url('https://fonts.googleapis.com/css2?family=Lobster&family=Roboto+Mono:wght@500&display=swap');
 @import "compass/reset";
-$fontSans : 'Montserrat', sans-serif;
-$fontSerif : 'Droid Serif', serif;
+$fontSerif : 'Lobster', cursive;
+$fontSans : 'Roboto Mono', monospace;
 
 
 @mixin transition($transition-property, $transition-time, $method) {
@@ -19,7 +19,7 @@ $fontSerif : 'Droid Serif', serif;
 
 body {
   color: #333;
-  -webkit-font-smoothing: antialiased;
+  -webkit-font-smoothing: subpixel-antialiased;
   font-family: $fontSerif;
  
 }
@@ -53,8 +53,11 @@ body {
     font-family: $fontSerif;
     font-weight: normal;
     font-style: italic;
-     text-transform: lowercase;
+     // text-transform: lowercase;
     color: #777;
+    background: -webkit-linear-gradient(45deg, #ff99ff, #ffcc00);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
     
   }
 }
@@ -72,28 +75,31 @@ body {
     &:link , &:visited {
       text-decoration: none;
       font-family: $fontSans;
-      letter-spacing: -.015em;
-      font-size: .75em;
+      letter-spacing: -.025em;
+      font-size: .85em;
       padding: 1em;
       color: #fff;
       background: #82ca9c;
       font-weight: bold;
       border-radius: 50px;
-    float: right;
+      float: right;
       text-align: right;
        @include transition(all, .25s, linear);
+      background: -webkit-linear-gradient(45deg, #ff99ff, #ffcc00);
+      // -webkit-background-clip: text;
+      // -webkit-text-fill-color: transparent;
     }
     &:after {
       content: "\276f";
       padding: .5em;
       position: relative;
       right:0;
-       @include transition(all, .15s, linear);
+       @include transition(all, .25s, linear);
       
     }
     &:hover , &:focus, &:active {
-      background: #f69679;
-      
+      background: -webkit-linear-gradient(45deg, #66ffcc, #ff99ff);
+      -webkit-transform: scale(1.1);
       &:after {
         right: -10px;
       }
@@ -112,8 +118,8 @@ body {
     display: table-cell;
     padding: 1em 0;
     text-align: center;
-    &.prodHeader {
-      text-align: left;
+     &.prodHeader {
+     text-align: left;
     }
   }
 }
@@ -126,33 +132,42 @@ body {
   .items {
     display: block;
     width: 100%;
- vertical-align: middle;
+    vertical-align: middle;
     padding: 1.5em;
-   
     border-bottom: 1px solid #fafafa;
+    &:hover , &:focus, &:active{
+      transition-delay: 0.1s;
+      transition-duration: 0.1s;
+      -webkit-transform: scale(1.02);
+      
+    }
     &.even {
-      background: #fafafa;
+      background: -webkit-linear-gradient(0deg, #ffffff, #fafafa, #ffffff);
+    }
+    &.odd {
+      background: #ffffff;
     }
     .infoWrap {
       display: table;
       width: 100%;
+      
     }
     .cartSection {
       display: table-cell;
- 
       vertical-align: middle;
+      border: none;
       
       
       .itemNumber {
-  font-size: .75em;
+        font-size: .75em;
         color: #777;
         margin-bottom: .5em;
-}
+      }
       
       h3 {
    
         font-size: 1em;
-      font-family: $fontSans;
+        font-family: $fontSans;
         font-weight: bold;
         text-transform: uppercase;
         letter-spacing: .025em;
@@ -167,16 +182,20 @@ body {
         font-family: $fontSans;
             .quantity {
         font-weight: bold;
-              color: #333;
+        color: #333;
       }
         
         &.stockStatus {
-          color: #82CA9C;
+          background: -webkit-linear-gradient(45deg, #009933 10%, #009933, #006699);
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
           font-weight: bold;
-          padding: .5em 0 0 1em;
-          text-transform: uppercase;
+          padding: .15em 0 0 2em;
+          
           &.out {
-            color: #F69679;
+            background: -webkit-linear-gradient(45deg, #ff66ff, #ffd700);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
           }
         }
         
@@ -188,10 +207,10 @@ body {
       }
       &.qtyWrap , &.prodTotal {
         text-align: center;
-    p {
-      font-weight: bold;
-      font-size: 1.25em;
-    }
+      p {
+        font-weight: bold;
+        font-size: 1.25em;
+      }
        
       }
       
@@ -199,8 +218,8 @@ body {
         width: 2em;
         text-align: center;
         font-size: 1em;
-          padding: .25em;
-      margin: 1em .5em 0 0;
+        padding: .25em;
+        margin: 1em .5em 0 0;
         
       }
       .itemImg {
@@ -214,54 +233,42 @@ body {
   }
   
 }   
- 
- .special {
-   display: block;
-   font-family: $fontSans;
-  .specialContent {
-   padding: 1em 1em 0;
-    display: block; 
-   margin-top:.5em;
-   border-top: 1px solid #dadada;
-   &:before {
-     content: "\21b3";
-     font-size: 1.5em;
-      margin-right: 1em;
-     color: #6f6f6f;
-     font-family: helvetica, arial, sans-serif;
-   }}
- 
- }
 
 a.remove {
   text-decoration: none;
   font-family: $fontSans;
   color: #ffffff;
   font-weight: bold;
-  background: #e0e0e0;
-  padding: .5em;
-  font-size: .75em;
+  background: #e1e1e1;
+  padding: .35em;
+  font-size: .85em;
   display: inline-block;
-  border-radius: 100%;
-  line-height: .85;
+  border-radius: 1200%;
+  line-height: 0.55;
    @include transition(all, .25s, linear);
   &:hover {
-    background: #f30;
+    transition-delay: 0.1s;
+    transition-duration: 0.1s;
+    background: -webkit-linear-gradient(45deg, #ff66ff, #ff5050);
+    -webkit-transform: scale(1.12);
+    
   }
 }
 
 .promoCode {
   border:2px solid #efefef;
+  border-radius: 0.618em;
   float: left;
   width: 35%;
-  padding: 2%;
+  
+  padding: 2.472%;
   label {
     display: block;
     width: 100%;
- font-style: italic;
+    font-style: Bold;
     font-size: 1.15em;
  
-    margin-bottom: .5em;
+    margin-bottom: .618em;
     letter-spacing: -.025em;
     
   }
@@ -271,21 +278,28 @@ a.remove {
     padding: .5em;
     float: left;
     border: 1px solid #dadada;
+    border-top-left-radius: 0.618em;
+    border-bottom-left-radius: 0.618em;
     &:active, &:focus {
       outline: 0;
      
+    }
+    &:hover{
+      -webkit-transform: scale(1.05);
     }
   }
   a.btn {
     float: left;
     width: 15%;
     padding: .75em 0;
-    border-radius: 0 1em 1em 0;
+    border-radius: 0 0.618em 0.618em 0;
     text-align: center;
     border: 1px solid #82ca9c;
+    background: -webkit-linear-gradient(45deg, #ff99ff, #ffcc00);
     &:hover {
        border: 1px solid #f69679;
-       background: #f69679;
+       background: -webkit-linear-gradient(45deg, #66ffcc, #ff99ff);
+       -webkit-transform: scale(1.05);
     }
   }
 }
@@ -301,9 +315,10 @@ a.remove {
       background: #82ca9c;
       font-weight: bold;
       border-radius: 50px;
-    float: right;
+      float: right;
       text-align: right;
        @include transition(all, .25s, linear);
+       background: -webkit-linear-gradient(45deg, #ff99ff, #ffcc00);
     }
       &:after {
       content: "\276f";
@@ -314,7 +329,8 @@ a.remove {
       
     }
     &:hover , &:focus, &:active {
-      background: #f69679;
+      background: -webkit-linear-gradient(45deg, #66ffcc, #ff99ff);
+       -webkit-transform: scale(1.05);
         &:after {
         right: -10px;
       }
@@ -374,13 +390,12 @@ float: right;
 }
 .cart {
   .items {
-
   .cartSection {
     width: 90%;
       display: block;float: left;
      &.qtyWrap {
        width: 10%;
-      text-align: center;
+       text-align: center;
        padding: .5em 0;
        float: right;
        &:before {
@@ -397,6 +412,7 @@ float: right;
     .itemImg {
       width: 25%;
     }
+    
   }
   }}
 .promoCode , .subtotal{
