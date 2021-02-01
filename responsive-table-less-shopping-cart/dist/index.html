@@ -17,22 +17,22 @@
     <a href="#" class="continue" name="continue">Keep Shopping</a>
   </div>
   <div class="cart">
-    <ul class="cartWrap">
+    <ul class="cartWrap" id="cartWrap">
       <li class="items odd">
 
         <div class="infoWrap">
           <div class="cartSection">
-            <img src="http://lorempixel.com/output/technics-q-c-300-300-4.jpg" alt="" class="itemImg" />
+            <img src="../image/item.png" alt="" class="itemImg" />
             <p class="itemNumber">#QUE-007544-002</p>
-            <h3>Item Name 1</h3>
+            <h3><span id="name1">Item Name 1</span></h3>
 
-            <p> <input type="text" class="qty" placeholder="3" name="first"/> x $5.00</p>
+            <p> <input type="text" class="qty" placeholder="3" id="first" onkeypress="setCountPrice(event, 'first' ,'name1', 'price1', 'stock1')"/> x $<span id="price1">5.00</span></p>
 
-            <p class="stockStatus"> In Stock</p>
+            <p class="stockStatus" id="stock1"> In Stock</p>
           </div>
 
           <div class="prodTotal cartSection">
-            <p>$15.00</p>
+            <p>$<span id="total1">15.00 </span></p>
           </div>
           <div class="cartSection removeWrap">
             <a href="#" class="remove">x</a>
@@ -44,17 +44,17 @@
         <div class="infoWrap">
           <div class="cartSection">
 
-            <img src="http://lorempixel.com/output/technics-q-c-300-300-4.jpg" alt="" class="itemImg" />
+            <img src="../image/item2.png" alt="" class="itemImg" />
             <p class="itemNumber">#QUE-007544-002</p>
-            <h3>Item Name 1</h3>
+            <h3><span id="name2">Item Name 1</span></h3>
 
-            <p> <input type="text" class="qty" placeholder="3" /> x $5.00</p>
+            <p> <input type="text" class="qty" placeholder="3" id="second" onkeypress="setCountPrice(event,'second', 'name2', 'price2', 'stock2')"/> x $<span id="price2">5.00</span></p>
 
-            <p class="stockStatus"> In Stock</p>
+            <p class="stockStatus" id="stock2"> In Stock</p>
           </div>
 
           <div class="prodTotal cartSection">
-            <p>$15.00</p>
+            <p>$<span id="total2">15.00 </span></p>
           </div>
           <div class="cartSection removeWrap">
             <a href="#" class="remove">x</a>
@@ -66,17 +66,17 @@
         <div class="infoWrap">
           <div class="cartSection">
 
-            <img src="http://lorempixel.com/output/technics-q-c-300-300-4.jpg" alt="" class="itemImg" />
+            <img src="../image/item3.png" alt="" class="itemImg" />
             <p class="itemNumber">#QUE-007544-002</p>
-            <h3>Item Name 1</h3>
+            <h3><span id="name3">Item Name 1</span></h3>
 
-            <p> <input type="text" class="qty" placeholder="3" /> x $5.00</p>
+            <p> <input type="text" class="qty" placeholder="3" id="third" onkeypress="setCountPrice(event,'third', 'name3', 'price3', 'stock3')"/> x $<span id="price3">5.00</span></p>
 
-            <p class="stockStatus out"> Out of Stock</p>
+            <p class="stockStatus out" id="stock3"> Out of Stock</p>
           </div>
 
           <div class="prodTotal cartSection">
-            <p>$15.00</p>
+            <p>$<span id="total3">15.00 </span></p>
           </div>
           <div class="cartSection removeWrap">
             <a href="#" class="remove">x</a>
@@ -87,18 +87,18 @@
         <div class="infoWrap">
           <div class="cartSection info">
 
-            <img src="http://lorempixel.com/output/technics-q-c-300-300-4.jpg" alt="" class="itemImg" />
+            <img src="../image/item4.png" alt="" class="itemImg" />
             <p class="itemNumber">#QUE-007544-002</p>
-            <h3>Item Name 1</h3>
+            <h3><span id="name4">Item Name 1</span></h3>
 
-            <p> <input type="text" class="qty" placeholder="3" /> x $5.00</p>
+            <p> <input type="text" class="qty" placeholder="3" id="forth" onkeypress="setCountPrice(event, 'forth', 'name4', 'price4', 'stock4')"/> x $<span id="price4">5.00</span></p>
     
-            <p class="stockStatus"> In Stock</p>
+            <p class="stockStatus" id="stock4"> In Stock</p>
 
           </div>
 
           <div class="prodTotal cartSection">
-            <p>$15.00</p>
+            <p>$<span id="total4">15.00 </span></p>
           </div>
 
           <div class="cartSection removeWrap">
@@ -112,17 +112,18 @@
     </ul>
   </div>
 
-  <div class="promoCode"><label for="promo">Promotion Code Here:</label><input type="text" name="promo" placholder="Enter Code" />
+  <div class="promoCode"><label for="promo">Promotion Code Here:</label><input type="text" name="promo" placholder="Enter Code" id='promo' />
     <a href="#" class="btn"></a>
   </div>
 
   <div class="subtotal cf">
     <ul>
-      <li class="totalRow"><span class="label">Subtotal</span><span class="value">$35.00</span></li>
+      <li class="totalRow"><span class="label">Subtotal</span><span class="value" id="subtotal">$ 35.00</span></li>
 
-      <li class="totalRow"><span class="label">Tax</span><span class="value">$4.00</span></li>
-      <li class="totalRow final"><span class="label">Total</span><span class="value">$44.00</span></li>
-      <li class="totalRow"><a href="#" class="btn continue" name="checkout">Checkout</a></li>
+      <li class="totalRow"><span class="label">Tax</span><span class="value" id="tax">$ 4.00</span></li>
+      <li class="totalRow"><span class="label">Discount</span><span class="value" id="discount">$ -4.00</span></li>
+      <li class="totalRow final"><span class="label">Total</span><span class="value">$ <span id='checkout'>40.00</span></span></li>
+      <li class="totalRow"><a href="#" class="btn continue" name="checkout" >Checkout</a></li>
     </ul>
   </div>
 </div>

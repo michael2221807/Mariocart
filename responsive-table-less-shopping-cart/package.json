@@ -1,0 +1,31 @@
+{
+  "name": "shopping-cart",
+  "version": "1.0.0",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "mongoose": "^5.11.14"
+  },
+  "main": "server.js",
+  "devDependencies": {
+    "cors": "^2.8.5"
+  },
+  "scripts": {
+    "setup": "npm install && cd backEnd && npm install && cd ..",
+    "build-run": "node server.js",
+    "start": "cd backEnd && node server.js",
+    "heroku-postbuild": "npm install && npm run build",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/csc301-winter-2021/55-michael2221807-JCut0.git"
+  },
+  "author": "jc-ut0",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/csc301-winter-2021/55-michael2221807-JCut0/issues"
+  },
+  "homepage": "https://github.com/csc301-winter-2021/55-michael2221807-JCut0#readme",
+  "description": ""
+}
