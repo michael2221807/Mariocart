@@ -1,3 +1,5 @@
+let global_url = "https://shopping-cart-server-55.herokuapp.com"
+
 // Remove Items From Cart
 $('a.remove').click(function(){
   event.preventDefault();
@@ -51,7 +53,7 @@ function setCountPrice(e, num, name, price, stock){
 		// console.log(json)
 
 
-	 	fetch("http://localhost:5000/api/item/put", {
+	 	fetch(global_url + "/api/item/put", {
 	 		method: 'PUT',
 	 		body: JSON.stringify(json),
 	 		headers: new Headers({
@@ -67,7 +69,7 @@ function setCountPrice(e, num, name, price, stock){
 })
 
         // console.log(count, price, sum);
-        url = "http://localhost:5000/api/item/cost/0.13&"
+        url = global_url + "/api/item/cost/0.13&"
         if (promo) {
         	url += 0.1;
         }else{
@@ -98,7 +100,7 @@ function setCountPrice(e, num, name, price, stock){
 }
 
 async function setItemPrice(item_name, num){
-	url = "http://localhost:5000/api/item/get/" + item_name;
+	url = global_url + "/api/item/get/" + item_name;
 	fetch(url, {
 		method: 'GET'
 	}).then(function(response) {
@@ -119,7 +121,7 @@ document.getElementById('checkout').textContent = 100;
 
 function updateAll() {
 
-	fetch("http://localhost:5000/api/item/get", {
+	fetch( global_url + "/api/item/get", {
  		method: 'GET'
  	}).then(function(response) {
 	    return response.json();
@@ -192,7 +194,7 @@ updateAll();
 
 setInterval(function(){ 
     updateAll(); 
-    url = "http://localhost:5000/api/item/cost/0.13&"
+    url = global_url + "/api/item/cost/0.13&"
         if (promo) {
         	url += 0.1;
         }else{
