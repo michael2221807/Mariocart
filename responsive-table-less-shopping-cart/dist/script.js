@@ -4,15 +4,14 @@ let global_url = "https://shopping-cart-server-55.herokuapp.com"
 // Remove Items From Cart
 $('a.remove').click(function(){
   event.preventDefault();
-  $( this ).parent().parent().parent().hide( 400 );
+  $( this ).parent().parent().parent().remove();
  
 })
 
-// Just for testing, show all items
-  $('a.btn.continue').click(function(){
-  	console.log('continue...')
-    $('li.items').show(400);
-  })
+//   $('a.btn.continue').click(function(){
+//   	console.log('continue...')
+//     $('li.items').show(400);
+//   })
 
 let promo = false;
 
