@@ -1,5 +1,6 @@
 let global_url = "https://shopping-cart-server-55.herokuapp.com"
 
+
 // Remove Items From Cart
 $('a.remove').click(function(){
   event.preventDefault();
@@ -66,7 +67,8 @@ function setCountPrice(e, num, name, price, stock){
 			setItemPrice('item3', 'total3');
 			setItemPrice('item4', 'total4');
 			document.getElementById(num).placeholder = count;
-})
+
+        })
 
         // console.log(count, price, sum);
         url = global_url + "/api/item/cost/0.13&"
@@ -82,6 +84,7 @@ function setCountPrice(e, num, name, price, stock){
 		  })
 		  .then(function(myJson) {
 		  	// console.log(myJson)
+            console.log('here' + myJson.subtotal)
 		    document.getElementById('subtotal').textContent = '$ ' + parseFloat(myJson.subtotal).toFixed(2);
 		    document.getElementById('tax').textContent = '$ ' + parseFloat(myJson.tax).toFixed(2);
 		    document.getElementById('discount').textContent = '$ ' + '-' + parseFloat(myJson.discount).toFixed(2);
@@ -94,7 +97,9 @@ function setCountPrice(e, num, name, price, stock){
 			document.getElementById(num).placeholder = count;
 
 		    
-    	})
+    	   })
+        asyncUpdateAll(200);
+        
 
 	}
 }
@@ -110,13 +115,6 @@ async function setItemPrice(item_name, num){
 		document.getElementById(num).textContent = (myJson[0].price * myJson[0].quantity).toFixed(2);
 	})
 }
-
-setItemPrice('item1', 'total1');
-setItemPrice('item2', 'total2');
-setItemPrice('item3', 'total3');
-setItemPrice('item4', 'total4');
-
-document.getElementById('checkout').textContent = 100;
 
 
 function updateAll() {
@@ -192,7 +190,9 @@ function updateAll() {
 }
 updateAll();
 
-setInterval(function(){ 
+function asyncUpdateAll(interval){
+
+    let timer = setInterval(function(){ 
     updateAll(); 
     url = global_url + "/api/item/cost/0.13&"
         if (promo) {
@@ -203,20 +203,24 @@ setInterval(function(){
         fetch(url, {
         	method: 'GET'
         }).then(function(response) {
-		    return response.json();
-		  })
-		  .then(function(myJson) {
-		  	// console.log(myJson)
-		    document.getElementById('subtotal').textContent = '$ ' + parseFloat(myJson.subtotal).toFixed(2);
-		    document.getElementById('tax').textContent = '$ ' + parseFloat(myJson.tax).toFixed(2);
-		    document.getElementById('discount').textContent = '$ ' + '-' + parseFloat(myJson.discount).toFixed(2);
-		    document.getElementById('checkout').textContent = parseFloat(myJson.total).toFixed(2);
-		    // document.getElementById('checkout').textContent = (myJson.cost).toFixed(2);
-		    setItemPrice('item1', 'total1');
-			setItemPrice('item2', 'total2');
-			setItemPrice('item3', 'total3');
-			setItemPrice('item4', 'total4');
+    	    return response.json();
+    	  })
+    	  .then(function(myJson) {
+    	  	// console.log(myJson)
+    	    document.getElementById('subtotal').textContent = '$ ' + parseFloat(myJson.subtotal).toFixed(2);
+    	    document.getElementById('tax').textContent = '$ ' + parseFloat(myJson.tax).toFixed(2);
+    	    document.getElementById('discount').textContent = '$ ' + '-' + parseFloat(myJson.discount).toFixed(2);
+    	    document.getElementById('checkout').textContent = parseFloat(myJson.total).toFixed(2);
+    	    // document.getElementById('checkout').textContent = (myJson.cost).toFixed(2);
+    	    setItemPrice('item1', 'total1');
+    		setItemPrice('item2', 'total2');
+    		setItemPrice('item3', 'total3');
+    		setItemPrice('item4', 'total4');
+            clearTimeout(timer)
 
-		    
+    	    
     })
-}, 5000);
+    }, interval);
+}
+
+asyncUpdateAll(2000);
