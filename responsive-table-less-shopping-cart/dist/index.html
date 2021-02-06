@@ -14,7 +14,7 @@
   <h1 class="projTitle">Group-<span>No.55</span> Shopping Cart</h1>
   <div class="heading cf">
     <h1>My Cart</h1>
-    <a href="#" class="continue" name="continue">Keep Shopping</a>
+    <a href="#" class="btn continue" name="continue">Keep Shopping</a>
   </div>
   <div class="cart">
     <ul class="cartWrap" id="cartWrap">
@@ -35,7 +35,7 @@
             <p>$<span id="total1">15.00 </span></p>
           </div>
           <div class="cartSection removeWrap">
-            <a href="#" class="remove">x</a>
+            <a href="#" class="remove" id="remove1" onclick="setCountPriceToZero('remove1', 'first' ,'name1', 'price1', 'stock1')">x</a>
           </div>
         </div>
       </li>
@@ -57,7 +57,7 @@
             <p>$<span id="total2">15.00 </span></p>
           </div>
           <div class="cartSection removeWrap">
-            <a href="#" class="remove">x</a>
+            <a href="#" class="remove" id="remove2" onclick="setCountPriceToZero('remove2', 'second', 'name2', 'price2', 'stock2')">x</a>
           </div>
         </div>
       </li>
@@ -79,7 +79,7 @@
             <p>$<span id="total3">15.00 </span></p>
           </div>
           <div class="cartSection removeWrap">
-            <a href="#" class="remove">x</a>
+            <a href="#" class="remove" id="remove3" onclick="setCountPriceToZero('remove3', 'third', 'name3', 'price3', 'stock3')">x</a>
           </div>
         </div>
       </li>
@@ -102,7 +102,7 @@
           </div>
 
           <div class="cartSection removeWrap">
-            <a href="#" class="remove">x</a>
+            <a href="#" class="remove" id="remove4" onclick="setCountPriceToZero('remove4', 'forth', 'name4', 'price4', 'stock4')">x</a>
           </div>
         </div>
       </li>
@@ -113,7 +113,7 @@
   </div>
 
   <div class="promoCode"><label for="promo">Promotion Code Here:</label><input type="text" name="promo" placholder="Enter Code" id='promo' />
-    <a href="#" class="btn"></a>
+    <a href="#" class="btn promo"></a>
   </div>
 
   <div class="subtotal cf">
@@ -123,7 +123,7 @@
       <li class="totalRow"><span class="label">Tax</span><span class="value" id="tax">$ 4.00</span></li>
       <li class="totalRow"><span class="label">Discount</span><span class="value" id="discount">$ -4.00</span></li>
       <li class="totalRow final"><span class="label">Total</span><span class="value">$ <span id='checkout'>40.00</span></span></li>
-      <li class="totalRow"><a href="#" class="btn continue" name="checkout" >Checkout</a></li>
+      <li class="totalRow"><a href="#" class="btn checkout" name="checkout" >Checkout</a></li>
     </ul>
   </div>
 </div>
